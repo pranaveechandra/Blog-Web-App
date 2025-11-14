@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,6 +23,59 @@
      </form>
     </div>
     <div class="blogs-container">
+        <%#  if(locals.blogs && blogs.length>0 ){ %>
+            <%# blogs.forEach(blog => { %>
+                <div class="blog-post">
+                    <h2><%#= blog.title %></h2>
+                    <p><%#= blog.content %></p>
+                    <small>Posted on: <%#= blog.createdAt.toLocaleString() %></small>
+                    <hr>
+                    <button>Edit</button>
+                <button>Delete</button>
+                </div>
+                
+            <%# }); %>
+        <%# } else { %>
+            <p>No blogs yet. Be the first to post!</p>
+        <%# } %>
+    </div>
+    >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog App</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="header-bar">
+        <h1 class="heading">Blog Web App</h1>
+        <form action="/logout" method="post" class="logout-form">
+            <button type="submit" class="logout-button">Logout</button>
+        </form>
+    </div>
+    
+    <div class="form">
+        <form action="/form" method="post">
+            <label for="title">Write Your Blog Here</label><br>
+            <input type="text" id="title" name="title" placeholder="Blog title"><br><br>
+            <textarea rows="5" cols="40" name="content" id="content" placeholder="Write your blog content here..."></textarea><br>
+            <input type="submit" value="ADD" id="ADD">
+        </form>
+    </div>
+    
+    <div class="clear-container">
+        <form action="/clear-blogs" method="post">
+            <button type="submit" class="clear-button">Clear All Blogs</button>
+        </form>
+    </div>
+    
+    <div class="blogs-container">
         <% if(locals.blogs && blogs.length>0 ){ %>
             <% blogs.forEach(blog => { %>
                 <div class="blog-post">
@@ -31,15 +84,14 @@
                     <small>Posted on: <%= blog.createdAt.toLocaleString() %></small>
                     <hr>
                     <button>Edit</button>
-                <button>Delete</button>
+                    <button>Delete</button>
                 </div>
-                
             <% }); %>
         <% } else { %>
             <p>No blogs yet. Be the first to post!</p>
         <% } %>
     </div>
-    >
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </body>
 </html>

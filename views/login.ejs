@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Blog App</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1 class="heading">Blog Web App</h1>
+        <div class="form">
+            <form action="/login" method="post">
+                <h2>Login</h2>
+                <% if (locals.error) { %>
+                    <p class="error-message" style="color: var(--accent-hot); margin-bottom: 1rem;">
+                        <%= error %>
+                    </p>
+                <% } %>
+                <label for="username">Username:</label><br>
+                <input type="text" id="username" name="username" required><br><br>
+                
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" required><br><br>
+                
+                <input type="submit" value="Login" class="login-button">
+            </form>
+            <div class="demo-credentials" style="margin-top: 1rem; padding: 1rem; background: rgba(139, 92, 246, 0.1); border-radius: 8px;">
+                <p style="margin: 0; color: var(--text-medium); font-size: 0.9rem;">
+                    <strong>Demo credentials:</strong><br>
+                    Username: admin<br>
+                    Password: password
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
